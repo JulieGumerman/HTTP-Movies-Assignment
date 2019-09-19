@@ -16,7 +16,19 @@ const App = () => {
   };
 
   useEffect(() => {
-    axios
+    // axios
+    //   .get("http://localhost:5000/api/movies")
+    //   // .then(res => this.setState({ movies: res.data }))
+    //   .then(response => {
+    //     setMovies({movies: response.data});
+    //     console.log("movies", movies);
+    //   })
+    //   .catch(err => console.log(err.response));
+    getThoseMovies();
+  }, [])
+
+  const getThoseMovies = () => {
+      axios
       .get("http://localhost:5000/api/movies")
       // .then(res => this.setState({ movies: res.data }))
       .then(response => {
@@ -24,7 +36,7 @@ const App = () => {
         console.log("movies", movies);
       })
       .catch(err => console.log(err.response));
-  }, [])
+  }
 
   console.log("got movies", movies);
 
@@ -35,7 +47,9 @@ const App = () => {
       <Route 
         exact path="/"
         render={props=> {
-          return <MovieList {...props} movies={movies} />
+          return <MovieList {...props} 
+          movies={movies} 
+          />
         }}
       />
       <Route 
@@ -47,7 +61,7 @@ const App = () => {
       <Route
         path="/update-movie/:id"
         render={props => {
-          return <UpdateForm {...props} movies={movies}/>
+          return <UpdateForm {...props} getThoseMovies={getThoseMovies} movies={movies}/>
         }}
       />
     </>

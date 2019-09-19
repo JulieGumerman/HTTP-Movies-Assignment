@@ -32,6 +32,7 @@ const UpdateForm = props => {
         axios.put(`http://localhost:5000/api/movies/${movie.id}`, updates)
             .then(result => {
                 console.log("It putted");
+                props.getThoseMovies();
                 props.history.push("/");
             })
             .catch(error => console.log(error));
