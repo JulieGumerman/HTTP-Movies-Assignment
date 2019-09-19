@@ -49,6 +49,7 @@ const App = () => {
         render={props=> {
           return <MovieList {...props} 
           movies={movies} 
+          getThoseMovies={getThoseMovies}
           />
         }}
       />

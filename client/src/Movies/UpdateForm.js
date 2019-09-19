@@ -7,8 +7,8 @@ const UpdateForm = props => {
 
 
 
-    const [myMovie, setMyMovie] = useState({title: "", director: "", metascore: "", stars: ""});
-    const [updates, setUpdates] = useState({title: "", director: "", metascore: "", stars: ""});
+    const [myMovie, setMyMovie] = useState({title: "", director: "", metascore: "", stars: []});
+    const [updates, setUpdates] = useState({title: "", director: "", metascore: "", stars: []});
 
     const { match, movies } = props;
     useEffect(() => {
